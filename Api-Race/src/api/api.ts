@@ -1,5 +1,4 @@
-import { AllCars, Car } from '../interface';
-
+import { AllCars, ICar } from '../interface';
 const BASE_URL: string | undefined = process.env.BASE_URL;
 const PORT: string | undefined = process.env.PORT;
 const defaultPage: number = 1;
@@ -12,38 +11,38 @@ export async function getAllCars(page = defaultPage, limit = limitCarForPage): P
   return allCart;
 }
 
-export async function getCar(id: number): Promise<Car> {
+export async function getCar(id: number): Promise<ICar> {
   const response: Response = await fetch(`${BASE_URL}:${PORT}/garage/${id}`);
-  const car: Car = await response.json();
+  const car: ICar = await response.json();
 
   return car;
 }
 
-export async function createCar(car: Car): Promise<Car> {
+export async function createCar(car: ICar): Promise<ICar> {
   const response: Response = await fetch(`${BASE_URL}:${PORT}/garage/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(car),
   });
-  const newCar: Car = await response.json();
+  const newCar: ICar = await response.json();
 
   return newCar;
 }
 
-export async function deleteCar(id: number): Promise<Car> {
+export async function deleteCar(id: number): Promise<ICar> {
   const response: Response = await fetch(`${BASE_URL}:${PORT}/garage/${id}`, { method: 'DELETE' });
-  const deletedCar: Car = await response.json();
+  const deletedCar: ICar = await response.json();
 
   return deletedCar;
 }
 
-export async function updateCart(car: Car): Promise<Car> {
+export async function updateCart(car: ICar): Promise<ICar> {
   const response: Response = await fetch(`${BASE_URL}:${PORT}/garage/${car.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(car),
   });
-  const updatedCart: Car = await response.json();
+  const updatedCart: ICar = await response.json();
 
   return updatedCart;
 }

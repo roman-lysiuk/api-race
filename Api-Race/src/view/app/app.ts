@@ -1,4 +1,5 @@
 import Garage from '../garage/garage';
+import { getAllCars } from '../../api/api';
 
 class App {
   garage: Garage;
@@ -7,7 +8,7 @@ class App {
     this.garage = new Garage();
   }
 
-  drawMenu() {
+  drawMenu(): void {
     const body: HTMLElement = document.body;
     const menu = document.createElement('div');
     const buttonGarage: HTMLButtonElement = document.createElement('button');
@@ -26,8 +27,10 @@ class App {
     body.append(menu);
   }
 
-  start() {
+  async start() {
+    const allCars = await getAllCars();
     this.drawMenu();
+    this.garage.drawGarage(allCars);
   }
 }
 

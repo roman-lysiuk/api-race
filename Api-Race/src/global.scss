@@ -1,0 +1,26 @@
+.control-car {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    align-items: center;
+    h5 {
+        text-align: center;
+        margin: 0;
+    }
+}
+.car-row {
+    border-bottom: 3px dashed black;
+    margin: 15px 0;
+}
+.road {
+    display: flex;
+    height: 30px;
+    gap: 5px;
+}
+.img-car svg {
+    height: 50px;
+    width: 50px;
+    object-position: left;
+    object-fit: contain;
+}
