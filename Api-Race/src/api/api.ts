@@ -46,3 +46,8 @@ export async function updateCart(car: ICar): Promise<ICar> {
 
   return updatedCart;
 }
+export async function getTotalCar(): Promise<number> {
+  const response: Response = await fetch(`${BASE_URL}:${PORT}/garage?_limit=${limitCarForPage}`);
+  const totalCar: number = Number(response.headers.get('X-Total-Count'));
+  return totalCar;
+}
