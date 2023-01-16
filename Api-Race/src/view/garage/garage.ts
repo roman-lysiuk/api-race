@@ -2,10 +2,13 @@ import Car from '../car/car';
 
 import { ICar, AllCars } from '../../interface';
 
+import { getTotalCar } from '../../api/api';
+
 class Garage {
-  drawGarage(cars: AllCars): void {
+  async drawGarage(cars: AllCars): Promise<void> {
+    const totalCar: number = await getTotalCar();
     this.drawControlPanel();
-    this.drawTotalCarsTitle(5);
+    this.drawTotalCarsTitle(totalCar);
     this.drawCars(cars);
   }
 
