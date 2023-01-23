@@ -1,3 +1,7 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
 .control-car {
     display: flex;
     gap: 10px;
@@ -12,15 +16,43 @@
 .car-row {
     border-bottom: 3px dashed black;
     margin: 15px 0;
+    width: 100%;
 }
 .road {
     display: flex;
     height: 30px;
     gap: 5px;
 }
+.img-car {
+    position: fixed;
+    left: 200px;
+}
 .img-car svg {
     height: 50px;
     width: 50px;
     object-position: left;
     object-fit: contain;
+}
+.animationMoveCar {
+    animation: moveCar 2762.43ms ease-in;
+}
+@keyframes moveCar {
+    0% {
+        left: 0%;
+    }
+    50% {
+        left: 30%;
+    }
+    75% {
+        left: 50%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+#btn-start-engine,
+#btn-stop-engine {
+    &:disabled {
+        cursor: not-allowed;
+    }
 }

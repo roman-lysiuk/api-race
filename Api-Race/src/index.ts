@@ -3,4 +3,7 @@ import './global.scss';
 
 const app = new App();
 
-app.start();
+export async function main() {
+  await app.start();
+}
+main();
