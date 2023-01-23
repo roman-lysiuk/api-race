@@ -18,7 +18,6 @@
     "class-methods-use-this": "off",
     "prefer-const": "error",
     "@typescript-eslint/no-explicit-any": "error",
-    "prettier/prettier": "error",
     "sonarjs/prefer-immediate-return": "off"
   }
 }
